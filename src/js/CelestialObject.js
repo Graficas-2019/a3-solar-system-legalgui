@@ -89,7 +89,7 @@ class CelestialObject extends THREE.Group {
       // CREATE THE MESH WITH GEOMETRY AND MATERIAL
       const ring = new THREE.Mesh(geometry, material);
       // ROTATION IS DEFINED BY RADIANS, SPECIFIED BY DEGREES
-      ring.rotateX(this.º2r(70));
+      ring.rotateX(this.degrees_to_radians(70));
       // ADD THE RING TO THE OBJECT
       this.astro.add(ring);
     }
@@ -105,7 +105,7 @@ class CelestialObject extends THREE.Group {
     // CREATE THE MESH WITH GEOMETRY AND MATERIAL
     const ring = new THREE.Mesh(geometry, material);
     // ROTATION IS DEFINED BY RADIANS, SPECIFIED BY DEGREES
-    ring.rotateX(this.º2r(90));
+    ring.rotateX(this.degrees_to_radians(90));
     // ADD THE RING TO THE OBJECT
     this.add(ring);
   }
@@ -124,12 +124,12 @@ class CelestialObject extends THREE.Group {
     this.orbitersGroup.add(group);
   }
 
-  r2º(radians) {
+  radians_to_degrees(radians) {
     return radians / Math.PI * 180;
   }
 
-  º2r(degrees) {
-    return degrees / this.r2º(1);
+  degrees_to_radians(degrees) {
+    return degrees / this.radians_to_degrees(1);
   }
 
   // ANIMATION LOOP
